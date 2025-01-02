@@ -12,6 +12,7 @@ let s:_ = 1 " 1: uninitialized, 2: disabled
 
 function! lightline#update() abort
   if s:skip() | return | endif
+  if &buftype ==# 'nofile' | return | endif
   if s:_
     if s:_ == 2 | return | endif
     call lightline#init()
